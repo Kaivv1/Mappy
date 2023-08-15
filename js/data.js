@@ -9,3 +9,5 @@ export const state = {
     markers: [],
   },
 };
+
+// export const markerCluster = L.markerClusterGroup();

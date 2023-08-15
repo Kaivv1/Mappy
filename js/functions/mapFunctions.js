@@ -49,3 +49,9 @@ export function moveToPopup(e) {
     },
   });
 }
+
+export function viewAllMarkers() {
+  let latlngs = state.storage.markers.map(marker => marker.marker.getLatLng());
+  let latlngBounds = L.latLngBounds(latlngs);
+  state.mapping.map.flyToBounds(latlngBounds);
+}

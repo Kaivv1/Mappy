@@ -1,5 +1,6 @@
 import { state } from '../data.js';
 import * as config from '../config.js';
+
 export function clearMarker(curEl) {
   state.storage.markers.forEach(marker => {
     if (
@@ -30,4 +31,16 @@ export function deleteWorkout() {
     workouts = state.storage.workouts;
     localStorage.setItem('workouts', JSON.stringify(workouts));
   });
+}
+
+export function deleteAllWorkouts() {
+  state.storage.markers.forEach(marker => {
+    state.mapping.map.removeLayer(marker.marker);
+  });
+  const workoutDivs = document.querySelectorAll('.workout');
+  workoutDivs.forEach(workout => {
+    config.containerWorkouts.removeChild(workout);
+  });
+  state.storage.markers.length = 0;
+  localStorage.removeItem('workouts');
 }
