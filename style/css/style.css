@@ -71,6 +71,7 @@ a:visited {
   box-sizing: border-box;
   padding: 10px 15px;
   transition: all 0.5s;
+  cursor: pointer;
 }
 .act-btn:hover {
   background-color: #059c56;
@@ -158,11 +159,13 @@ a:visited {
 .remove--btn {
   top: 3%;
   right: 1.5%;
+  cursor: pointer;
 }
 
 .edit--btn {
   top: 5%;
   right: 6%;
+  cursor: pointer;
 }
 
 .form {
@@ -214,7 +217,17 @@ a:visited {
 }
 
 .form__input.sorter {
-  width: 65%;
+  width: 8.5rem;
+  padding: 0.15rem;
+}
+
+.sort-btn {
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.4rem;
+  background-color: var(--color-dark--1);
+  cursor: pointer;
 }
 
 .form__input:focus {
@@ -233,7 +246,6 @@ a:visited {
   background-color: var(--color-light--1);
 }
 
-/* Popup width is defined in JS using options */
 .leaflet-popup .leaflet-popup-content-wrapper {
   background-color: var(--color-dark--1);
   color: var(--color-light--2);

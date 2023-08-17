@@ -1,5 +1,4 @@
 import { state } from '../data.js';
-import { renderWorkout } from './renderFunctions.js';
 
 export function edit() {
   const editButtons = document.querySelectorAll('.edit--btn');
@@ -10,8 +9,6 @@ export function edit() {
 
   function handleEditButtonClick(e) {
     const workoutEl = e.target.closest('.workout');
-    const workoutId = workoutEl.dataset.id;
-    const workout = state.storage.workouts.find(work => work.id === workoutId);
 
     const workoutValues = workoutEl.querySelectorAll('.workout__value');
 
@@ -49,16 +46,20 @@ export function edit() {
     const classList = e.target.classList;
 
     if (classList.contains('value__distance')) {
-      workout.distance = parseFloat(e.target.innerHTML);
+      workout.distance = parseFloat(e.target.innerHTML) || 0;
+      if (e.target.innerHTML === '') {
+        return (e.target.innerHTML = 0);
+      }
     } else if (classList.contains('value__duration')) {
-      workout.duration = parseFloat(e.target.innerHTML);
+      workout.duration = parseFloat(e.target.innerHTML) || 0;
+      if (e.target.innerHTML === '') {
+        return (e.target.innerHTML = 0);
+      }
     } else if (classList.contains('value__cadence')) {
-      workout.cadence = parseFloat(e.target.innerHTML);
+      workout.cadence = parseFloat(e.target.innerHTML) || 0;
     } else if (classList.contains('value__elevation')) {
-      workout.elevationGain = parseFloat(e.target.innerHTML);
+      workout.elevationGain = parseFloat(e.target.innerHTML) || 0;
     }
-
-    // Recalculate pace and speed
 
     // Update the UI with calculated values
     const paceElement = workoutEl.querySelector('.value__pace');
@@ -67,22 +68,24 @@ export function edit() {
     const elevationElement = workoutEl.querySelector('.value__elevation');
 
     if (elevationElement) {
-      workout.elevation =
+      const speedMs = (workout.speed * 1000) / 3600;
+      workout.elevationGain = ((workout.duration * 60) / 3600) * speedMs || 0;
+      elevationElement.innerHTML = workout.elevationGain.toFixed(0);
     }
 
     if (cadenceElement) {
       workout.cadence =
-        ((workout.distance * 1000) / (workout.duration * 60)) * 60;
+        ((workout.distance * 1000) / (workout.duration * 60)) * 60 || 0;
       cadenceElement.innerHTML = workout.cadence.toFixed(0);
     }
 
     if (paceElement) {
-      workout.pace = workout.distance / workout.duration;
+      workout.pace = workout.distance / workout.duration || 0;
       paceElement.innerHTML = workout.pace.toFixed(1);
     }
 
     if (speedElement) {
-      workout.speed = workout.distance / (workout.duration / 60);
+      workout.speed = workout.distance / (workout.duration / 60) || 0;
       speedElement.innerHTML = workout.speed.toFixed(1);
     }
   }

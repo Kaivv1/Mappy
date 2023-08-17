@@ -1,12 +1,13 @@
 export class Workout {
   date = new Date();
+  options = { hour: '2-digit', minute: '2-digit', hour12: true };
+  am_pm = this.date.toLocaleTimeString([], this.options);
   id = (Date.now() + '').slice(-10);
-  _workoutId;
 
   constructor(coords, distance, duration) {
-    this.coords = coords; // [lat, lng]
-    this.distance = distance; // in km
-    this.duration = duration; // in min
+    this.coords = coords;
+    this.distance = distance;
+    this.duration = duration;
   }
 
   _setDescription() {
@@ -15,10 +16,6 @@ export class Workout {
 
     this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
       months[this.date.getMonth()]
-    } ${this.date.getDate()}`;
+    } ${this.date.getDate()} at ${this.am_pm}`;
   }
 }
-
-// export default new Cycling();
-// export default new Running();
-// export default new Workout();

@@ -58,9 +58,9 @@ export function renderWorkout(workout) {
         </div>
         <div class="workout__details">
         <span class="workout__icon">⛰</span>
-        <span class="workout__value workout__value-change value__elevation">${
+        <span class="workout__value workout__value-change value__elevation">${Number.parseFloat(
           workout.elevationGain
-        }</span>
+        ).toFixed(0)}</span>
         <span class="workout__unit">m</span>
       </div>
       <button class="done act-btn hidden">Done</button>
@@ -80,7 +80,7 @@ export function renderWorkoutMarker(workout) {
   const marker = new L.marker(workout.coords)
     .bindPopup(
       L.popup({
-        maxWidth: 250,
+        maxWidth: 260,
         minWidth: 100,
         autoClose: false,
         closeOnClick: false,
@@ -91,44 +91,41 @@ export function renderWorkoutMarker(workout) {
       `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`
     );
 
-  // markerCluster.addLayer(marker);
-  // state.mapping.map.addLayer(markerCluster);
   state.mapping.map.addLayer(marker);
   marker.openPopup();
 
   state.storage.markers.push({ marker });
-  console.log(marker);
 }
 
-export function sortWorkouts(property) {
-  if (property === 'Distance') {
-    state.storage.workouts.sort(
-      (a, b) => parseFloat(a.distance) - pasrseFloat(b.distance)
-    );
+function sortWorkouts(property) {
+  if (property === 'none') {
+    state.storage.workouts = JSON.parse(localStorage.getItem('workouts'));
+  } else {
+    const compareFn = (a, b) => {
+      const aValue = parseFloat(a[property]);
+      const bValue = parseFloat(b[property]);
+      console.log(property);
+      return aValue - bValue;
+    };
+    state.storage.workouts.sort(compareFn);
   }
-  if (property === 'Duration') {
-    state.storage.workouts.sort(
-      (a, b) => parseFloat(a.duration) - pasrseFloat(b.duration)
-    );
-  }
-  if (property === 'Pace') {
-    state.storage.workouts.sort(
-      (a, b) => parseFloat(a.pace) - pasrseFloat(b.pace)
-    );
-  }
+  renderWorkoutList();
 }
 
-export function renderWorkoutList() {
-  // Clear existing list
+function renderWorkoutList() {
   const workoutDivs = document.querySelectorAll('.workout');
   workoutDivs.forEach(workout => {
     config.containerWorkouts.removeChild(workout);
   });
 
-  // Render sorted workouts
   for (const workout of state.storage.workouts) {
     renderWorkout(workout);
   }
 }
 
-// Step 3: Update event listener for sorting selector
+export function sort(e) {
+  e.preventDefault();
+  const type = config.inputSort.value;
+
+  sortWorkouts(type);
+}

@@ -7,5 +7,6 @@ export const inputCadence = document.querySelector('.form__input--cadence');
 export const inputElevation = document.querySelector('.form__input--elevation');
 export const delAllWorkouts = document.querySelector('.btn-delAll');
 export const viewAllMarkers = document.querySelector('.view-all-workouts');
-export const sortSelector = document.querySelector('.sorter');
-// "build": "parcel build index.html --dist-dir ./dist"
+export const sortForm = document.querySelector('.form--sorter');
+export const inputSort = document.querySelector('.sorter');
+export const sortBtn = document.querySelector('.sort-btn');

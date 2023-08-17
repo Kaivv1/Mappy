@@ -28,5 +28,3 @@ export function toggleElevationField() {
     .closest('.form__row')
     .classList.toggle('form__row--hidden');
 }
-
-export function displayWorkout(option) {}

@@ -41,6 +41,6 @@ export function deleteAllWorkouts() {
   workoutDivs.forEach(workout => {
     config.containerWorkouts.removeChild(workout);
   });
-  state.storage.markers.length = 0;
+  state.storage.workouts.length = 0;
   localStorage.removeItem('workouts');
 }
