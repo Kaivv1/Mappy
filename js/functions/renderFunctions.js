@@ -9,6 +9,7 @@ export function renderWorkout(workout) {
   <h2 class="workout__title">${workout.description}</h2>
   <button class="remove--btn workout--btn">&#10005;</button>
       <button class="edit--btn workout--btn">Edit</button>
+      <div class ="workout__details--container">
       <div class="workout__details">
       <span class="workout__icon">${
         workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'
@@ -38,12 +39,15 @@ export function renderWorkout(workout) {
         </div>
         <div class="workout__details">
         <span class="workout__icon">🦶🏼</span>
-        <span class="workout__value workout__value-change value__cadence">${
+        <span class="workout__value workout__value-change value__cadence">${Number.parseFloat(
           workout.cadence
-        }</span>
+        ).toFixed(0)}</span>
         <span class="workout__unit">spm</span>
         </div>
+        </div>
+        <div>
         <button class="done act-btn hidden">Done</button>
+        </div>
         </li>
         `;
 
@@ -58,12 +62,15 @@ export function renderWorkout(workout) {
         </div>
         <div class="workout__details">
         <span class="workout__icon">⛰</span>
-        <span class="workout__value workout__value-change value__elevation">${Number.parseFloat(
+        <span class="workout__value workout__value-change value__elevation" minlength="0" maxlength="5">${Number.parseFloat(
           workout.elevationGain
         ).toFixed(0)}</span>
         <span class="workout__unit">m</span>
       </div>
+      </div>
+      <div>
       <button class="done act-btn hidden">Done</button>
+      </div>
       </li>
       `;
 
@@ -104,7 +111,7 @@ function sortWorkouts(property) {
     const compareFn = (a, b) => {
       const aValue = parseFloat(a[property]);
       const bValue = parseFloat(b[property]);
-      console.log(property);
+
       return aValue - bValue;
     };
     state.storage.workouts.sort(compareFn);

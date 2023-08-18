@@ -26,7 +26,7 @@ export function newWorkout(e) {
       !validInputs(distance, duration, cadence) ||
       !allPositive(distance, duration, cadence)
     )
-      return alert('Inputs have to be positive numbers!');
+      return alert('Inputs have to be positive numbers or filled!');
 
     workout = new Running([lat, lng], distance, duration, cadence);
   }
@@ -39,7 +39,7 @@ export function newWorkout(e) {
       !validInputs(distance, duration, elevation) ||
       !allPositive(distance, duration)
     )
-      return alert('Inputs have to be positive numbers!');
+      return alert('Inputs have to be positive numbers or filled!');
 
     workout = new Cycling([lat, lng], distance, duration, elevation);
   }

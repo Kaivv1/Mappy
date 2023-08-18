@@ -27,10 +27,8 @@ body {
   line-height: 1.6;
   height: 100vh;
   overscroll-behavior-y: none;
-
   background-color: #fff;
   padding: 2.5rem;
-
   display: flex;
 }
 
@@ -40,9 +38,9 @@ a:visited {
 }
 
 .sidebar {
-  flex-basis: 50rem;
+  width: 54rem;
   background-color: var(--color-dark--1);
-  padding: 3rem 3rem 4rem 3rem;
+  padding: 3rem 3.7rem 4rem 3.7rem;
   display: flex;
   flex-direction: column;
 }
@@ -70,14 +68,19 @@ a:visited {
   padding: 10px 15px;
   transition: all 0.5s;
   cursor: pointer;
+  font-weight: bold;
 }
 .act-btn:hover {
   background-color: #157bb6;
 }
 
+.act-btn:focus {
+  outline: none;
+}
 .act-btn:active {
   transform: scale(0.96);
 }
+
 .hidden {
   opacity: 0;
   display: none;
@@ -96,13 +99,18 @@ a:visited {
 .workout {
   background-color: var(--color-dark--2);
   border-radius: 5px;
-  padding: 1.5rem 2.25rem;
+  padding: 1.5rem 2.9rem;
   margin-bottom: 1.75rem;
   cursor: pointer;
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+
   gap: 0.75rem 1.5rem;
+}
+.workout__details--container {
+  display: flex;
+  justify-content: space-around;
 }
 .workout--running {
   border-left: 5px solid var(--color-brand--2);
@@ -131,6 +139,19 @@ a:visited {
 .workout__value {
   font-size: 1.5rem;
   margin-right: 0.5rem;
+}
+.workout__value.active {
+  background-color: var(--color-light--2);
+  padding: 0px 5px;
+  border-radius: 5px;
+  color: #000;
+  border: 2px solid var(--color-dark--1);
+  max-width: 6ch;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.workout__value.active:focus {
+  outline: none;
 }
 
 .workout__unit {
@@ -171,13 +192,12 @@ a:visited {
   border-radius: 5px;
   padding: 1.5rem 2.75rem;
   margin-bottom: 1.75rem;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem 2.5rem;
-
-  height: 9.25rem;
+  height: 13rem;
   transition: all 0.5s, transform 1ms;
+  position: relative;
 }
 
 .form.hidden {
@@ -242,7 +262,15 @@ a:visited {
 }
 
 .form__btn {
-  display: none;
+  width: 5rem;
+  height: 2.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  position: absolute;
+  bottom: 3.5%;
+  right: 5.5%;
 }
 
 /* Map */

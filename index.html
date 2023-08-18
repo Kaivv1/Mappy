@@ -59,13 +59,20 @@
           </div>
           <div class="form__row">
             <label class="form__label">Distance</label>
-            <input class="form__input form__input--distance" placeholder="km" />
+            <input
+              class="form__input form__input--distance"
+              placeholder="km"
+              minlength="0"
+              maxlength="5"
+            />
           </div>
           <div class="form__row">
             <label class="form__label">Duration</label>
             <input
               class="form__input form__input--duration"
               placeholder="min"
+              minlength="0"
+              maxlength="5"
             />
           </div>
 
@@ -74,6 +81,8 @@
             <input
               class="form__input form__input--cadence"
               placeholder="step/min"
+              minlength="0"
+              maxlength="5"
             />
           </div>
           <div class="form__row form__row--hidden">
@@ -81,9 +90,13 @@
             <input
               class="form__input form__input--elevation"
               placeholder="meters"
+              minlength="0"
+              maxlength="5"
             />
           </div>
-          <button class="form__btn">OK</button>
+          <div>
+            <button class="form__btn act-btn">Enter</button>
+          </div>
         </form>
       </ul>
     </div>
