@@ -1,6 +1,6 @@
 :root {
   --color-brand--1: #ffb545;
-  --color-brand--2: #00c46a;
+  --color-brand--2: #1c8fd1;
 
   --color-dark--1: #2d3439;
   --color-dark--2: #42484d;
@@ -34,17 +34,15 @@ body {
   display: flex;
 }
 
-/* GENERAL */
 a:link,
 a:visited {
   color: var(--color-brand--1);
 }
 
-/* SIDEBAR */
 .sidebar {
   flex-basis: 50rem;
   background-color: var(--color-dark--1);
-  padding: 3rem 5rem 4rem 5rem;
+  padding: 3rem 3rem 4rem 3rem;
   display: flex;
   flex-direction: column;
 }
@@ -74,7 +72,7 @@ a:visited {
   cursor: pointer;
 }
 .act-btn:hover {
-  background-color: #059c56;
+  background-color: #157bb6;
 }
 
 .act-btn:active {
@@ -217,10 +215,17 @@ a:visited {
 }
 
 .form__input.sorter {
-  width: 8.5rem;
+  width: 15rem;
+  height: 3rem;
   padding: 0.15rem;
 }
 
+.form--sorter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 27%;
+}
 .sort-btn {
   color: #fff;
   border: none;
@@ -228,6 +233,7 @@ a:visited {
   padding: 0.4rem;
   background-color: var(--color-dark--1);
   cursor: pointer;
+  margin-left: 2px;
 }
 
 .form__input:focus {
@@ -239,7 +245,7 @@ a:visited {
   display: none;
 }
 
-/* MAP */
+/* Map */
 #map {
   flex: 1;
   height: 100%;
