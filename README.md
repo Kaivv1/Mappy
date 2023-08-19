@@ -8,7 +8,7 @@ Just press on the map an choose your location.
 
 ## Features
 
-You have full cotrol over your workouts:
+You have full cotrol over your workouts: <br>
 -delete <br>
 -edit <br>
 -save <br>
