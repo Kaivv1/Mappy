@@ -13,7 +13,6 @@ You have full cotrol over your workouts: <br>
 -edit <br>
 -save <br>
 
-You can add workouts around the world and with View All you can see all of them. 
-You can delete all of them.
-You can sort them in ascending way depending on the value and return them to their original state as well.
-And they also save in the browser, when you come back all of your workouts will be there.
+You can add workouts around the world and view all of them with one button. <br>
+You can sort them in ascending way depending on the value and return them to their original state as well. <br>
+And they also save in the browser, when you come back all of your workouts will be there. <br>
