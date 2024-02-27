@@ -8,7 +8,6 @@ export function showForm(mapE) {
 }
 
 export function hideForm() {
-  // Empty inputs
   config.inputDistance.value =
     config.inputDuration.value =
     config.inputCadence.value =
