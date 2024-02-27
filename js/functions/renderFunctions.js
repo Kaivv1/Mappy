@@ -76,10 +76,7 @@ export function renderWorkout(workout) {
 
   config.form.insertAdjacentHTML('afterend', html);
 
-  // Edit workout
   edit();
-
-  // Delete workout
   deleteWorkout();
 }
 
