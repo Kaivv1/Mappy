@@ -62,7 +62,6 @@ export function edit() {
       workout.elevationGain = parseFloat(e.target.innerHTML) || 0;
     }
 
-    // Update the UI with calculated values
     const paceElement = workoutEl.querySelector('.value__pace');
     const speedElement = workoutEl.querySelector('.value__speed');
     const cadenceElement = workoutEl.querySelector('.value__cadence');
