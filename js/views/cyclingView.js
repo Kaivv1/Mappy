@@ -10,7 +10,6 @@ export class Cycling extends Workout {
   }
 
   calcSpeed() {
-    // km/h
     this.speed = this.distance / (this.duration / 60);
     return this.speed;
   }
