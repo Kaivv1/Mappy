@@ -4,7 +4,7 @@ Map application where you can track your running or cycling exercises around the
 
 ## How it works:
 
-Just press on the map an choose your location.
+Choose location and add statistics for your workout.
 
 ### Project setup <br>
 npm install
